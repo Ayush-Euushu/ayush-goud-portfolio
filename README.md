@@ -4,7 +4,7 @@ A personal portfolio website showcasing my skills, projects, education, internsh
 
 ## 🌐 Live Website
 
-[View My Portfolio](YOUR-NETLIFY-URL)
+[View My Portfolio](https://ayushgoud-portfolio.netlify.app/)
 
 ## 🚀 Deployment
 
