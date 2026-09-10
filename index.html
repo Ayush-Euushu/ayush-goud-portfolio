@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ayush Goud | Computer Science &amp; Engineering Portfolio</title>
+  <meta name="description" content="Personal portfolio of Ayush Goud - 2nd Year Computer Science and Engineering student at GIET University, Gunupur. Practical projects in Python, Machine Learning, and Software Development." />
+
+  <!-- Google Fonts: Plus Jakarta Sans, Inter, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Material Symbols Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            canvas: '#f8f9fa',
+            surface: {
+              DEFAULT: '#ffffff',
+              low: '#f3f4f5',
+              container: '#edeeef',
+              high: '#e7e8e9',
+              highest: '#e1e3e4',
+            },
+            ink: {
+              primary: '#111827',
+              secondary: '#4b5563',
+              muted: '#6b7280',
+            },
+            brand: {
+              DEFAULT: '#4f46e5',
+              hover: '#4338ca',
+              subtle: 'rgba(79, 70, 229, 0.08)',
+              border: 'rgba(79, 70, 229, 0.18)',
+            },
+            amberAccent: {
+              50: '#fffbeb',
+              100: '#fef3c7',
+              200: '#fde68a',
+              500: '#f59e0b',
+              600: '#d97706',
+              700: '#b45309',
+              800: '#92400e',
+            }
+          },
+          fontFamily: {
+            heading: ['Plus Jakarta Sans', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          boxShadow: {
+            'card': '0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.02)',
+            'card-hover': '0 12px 24px -4px rgba(17, 24, 39, 0.06), 0 4px 8px -2px rgba(17, 24, 39, 0.02)',
+            'primary-glow': '0 4px 14px 0 rgba(79, 70, 229, 0.25)',
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* Baseline typography & resets */
+    html {
+      scroll-padding-top: 5.5rem;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8f9fa;
+      color: #111827;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .font-mono-tag {
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .card-lift {
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .card-lift:hover {
+      transform: translateY(-2px);
+    }
+    @keyframes subtlePulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.1); }
+    }
+    .live-pulse {
+      animation: subtlePulse 2.4s infinite ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-canvas text-ink-primary antialiased selection:bg-brand-subtle selection:text-brand">
+
+  <!-- ==================== TOP NAVIGATION BAR ==================== -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-[#f8f9fa]/90 backdrop-blur-md border-b border-gray-200">
+    <div class="max-w-[72rem] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo & Name -->
+      <a href="#hero" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-brand rounded-lg p-1">
+        <div class="w-10 h-10 rounded-xl bg-brand text-white flex items-center justify-center font-heading font-extrabold text-base shadow-sm group-hover:bg-brand-hover transition-colors">
+          AG
+        </div>
+        <div class="flex flex-col">
+          <span class="font-heading font-bold text-ink-primary text-base tracking-tight group-hover:text-brand transition-colors">
+            AYUSH GOUD
+          </span>
+          <span class="text-xs text-ink-secondary font-medium">
+            B.Tech CSE • GIET University
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="hidden lg:flex items-center gap-1 bg-white p-1 rounded-full border border-gray-200 shadow-card">
+        <a href="#hero" class="nav-link px-3.5 py-1.5 rounded-full text-xs font-semibold text-ink-secondary hover:text-ink-primary hover:bg-gray-100 transition-colors">Home</a>
+        <a href="#about" class="nav-link px-3.5 py-1.5 rounded-full text-xs font-semibold text-ink-secondary hover:text-ink-primary hover:bg-gray-100 transition-colors">About</a>
+        <a href="#skills" class="nav-link px-3.5 py-1.5 rounded-full text-xs font-semibold text-ink-secondary hover:text-ink-primary hover:bg-gray-100 transition-colors">Skills</a>
+        <a href="#projects" class="nav-link px-3.5 py-1.5 rounded-full text-xs font-semibold text-ink-secondary hover:text-ink-primary hover:bg-gray-100 transition-colors">Projects</a>
+        <a href="#education" class="nav-link px-3.5 py-1.5 rounded-full text-xs font-semibold text-ink-secondary hover:text-ink-primary hover:bg-gray-100 transition-colors">Education</a>
+        <a href="#experience" class="nav-link px-3.5 py-1.5 rounded-full text-xs font-semibold text-ink-secondary hover:text-ink-primary hover:bg-gray-100 transition-colors">Experience</a>
+        <a href="#certifications" class="nav-link px-3.5 py-1.5 rounded-full text-xs font-semibold text-ink-secondary hover:text-ink-primary hover:bg-gray-100 transition-colors">Certifications</a>
+        <a href="#contact" class="nav-link px-3.5 py-1.5 rounded-full text-xs font-semibold text-ink-secondary hover:text-ink-primary hover:bg-gray-100 transition-colors">Contact</a>
+      </nav>
+
+      <!-- Desktop Contact CTA & Mobile Toggle Button -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <a href="#contact" class="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-brand hover:bg-brand-hover text-white text-xs font-semibold shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2">
+          <span>Get in Touch</span>
+          <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobile-menu-button" type="button" aria-label="Toggle navigation menu" aria-expanded="false" class="lg:hidden p-2 rounded-lg text-ink-secondary hover:text-ink-primary hover:bg-gray-100 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand">
+          <span id="menu-icon-open" class="material-symbols-outlined text-[24px]">menu</span>
+          <span id="menu-icon-close" class="material-symbols-outlined text-[24px] hidden">close</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-200 bg-white px-4 py-4 space-y-1 shadow-lg">
+      <a href="#hero" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-sm font-medium text-ink-primary hover:bg-gray-50 hover:text-brand transition-colors">Home</a>
+      <a href="#about" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-sm font-medium text-ink-primary hover:bg-gray-50 hover:text-brand transition-colors">About</a>
+      <a href="#skills" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-sm font-medium text-ink-primary hover:bg-gray-50 hover:text-brand transition-colors">Skills</a>
+      <a href="#projects" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-sm font-medium text-ink-primary hover:bg-gray-50 hover:text-brand transition-colors">Projects</a>
+      <a href="#education" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-sm font-medium text-ink-primary hover:bg-gray-50 hover:text-brand transition-colors">Education</a>
+      <a href="#experience" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-sm font-medium text-ink-primary hover:bg-gray-50 hover:text-brand transition-colors">Experience</a>
+      <a href="#certifications" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-sm font-medium text-ink-primary hover:bg-gray-50 hover:text-brand transition-colors">Certifications</a>
+      <a href="#contact" class="mobile-nav-link block px-4 py-2.5 rounded-lg text-sm font-medium text-ink-primary hover:bg-gray-50 hover:text-brand transition-colors">Contact</a>
+      <div class="pt-2 border-t border-gray-100">
+        <a href="#contact" class="mobile-nav-link flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-lg bg-brand text-white text-sm font-semibold shadow-sm">
+          <span>Contact Ayush</span>
+          <span class="material-symbols-outlined text-[16px]">mail</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main class="pt-20">
+
+    <!-- ==================== 1. HERO SECTION ==================== -->
+    <section id="hero" class="relative pt-12 pb-16 lg:pt-20 lg:pb-24 overflow-hidden border-b border-gray-200/80 bg-canvas">
+      <div class="max-w-[72rem] mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          
+          <!-- Left Column: Profile Photo Card -->
+          <div class="lg:col-span-5 flex justify-center order-1 lg:order-1">
+            <div class="w-full max-w-sm bg-white rounded-2xl p-4 border border-gray-200 shadow-card relative card-lift">
+              
+              <!-- Floating Availability Chip -->
+              <div class="absolute -top-3 left-6 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amberAccent-50 border border-amberAccent-200 text-amberAccent-800 text-xs font-semibold shadow-xs">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 live-pulse"></span>
+                <span>Open for Opportunities</span>
+              </div>
+
+              <!-- Profile Image Container -->
+              <div class="w-full aspect-[4/5] sm:aspect-square rounded-xl overflow-hidden bg-surface-low border border-gray-100 relative">
+                <img 
+                  src="assets/profile.jpeg" 
+                  alt="Ayush Goud - Computer Science and Engineering Student" 
+                  class="w-full h-full object-cover object-top"
+                />
+              </div>
+
+              <!-- Profile Quick Metadata -->
+              <div class="mt-4 pt-3 border-t border-gray-100 flex items-center justify-between text-xs">
+                <div>
+                  <span class="font-heading font-bold text-ink-primary block text-sm">Ayush Goud</span>
+                  <span class="text-ink-secondary">Computer Science &amp; Engineering</span>
+                </div>
+                <span class="font-mono-tag bg-gray-100 text-ink-secondary px-2.5 py-1 rounded-md text-[11px] font-medium border border-gray-200">
+                  2nd Year B.Tech
+                </span>
+              </div>
+
+              <!-- Academic Institution Tag -->
+              <div class="mt-2.5 bg-gray-50 rounded-lg p-2.5 border border-gray-100 flex items-center gap-2 text-xs text-ink-secondary">
+                <span class="material-symbols-outlined text-brand text-[18px]">school</span>
+                <span class="font-medium">GIET University, Gunupur</span>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Right Column: Name, Value Proposition & Actions -->
+          <div class="lg:col-span-7 flex flex-col items-start space-y-5 order-2 lg:order-2">
+            
+            <!-- Live Status Badge -->
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-gray-200 text-ink-secondary text-xs font-medium shadow-xs">
+              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+              <span>Computer Science Student • Software &amp; AI/ML Foundations</span>
+            </div>
+
+            <!-- Main Heading with Prominent Name -->
+            <div>
+              <span class="text-sm font-semibold tracking-wider uppercase text-brand block mb-1">Portfolio</span>
+              <h1 class="font-heading font-extrabold text-3xl sm:text-4xl lg:text-5xl text-ink-primary tracking-tight leading-[1.15]">
+                AYUSH GOUD
+              </h1>
+              <p class="font-heading font-semibold text-lg sm:text-xl text-ink-secondary mt-1">
+                Computer Science and Engineering Student
+              </p>
+            </div>
+
+            <!-- Value Proposition Statement -->
+            <p class="text-sm sm:text-base text-ink-secondary leading-relaxed max-w-2xl">
+              Studying Computer Science and Engineering at <strong class="text-ink-primary font-semibold">GIET University, Gunupur</strong> (2nd Year). Passionate about software development, programming, problem solving, data analysis, and learning AI/ML fundamentals through hands-on technical projects.
+            </p>
+
+            <!-- Action CTAs -->
+            <div class="flex flex-wrap items-center gap-3 pt-2">
+              <a href="#projects" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-brand hover:bg-brand-hover text-white text-xs font-semibold shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2">
+                <span class="material-symbols-outlined text-[16px]">folder_open</span>
+                <span>View Projects</span>
+              </a>
+              <a href="#contact" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-white hover:bg-gray-50 text-ink-primary text-xs font-semibold border border-gray-300 shadow-xs transition-all focus:outline-none focus:ring-2 focus:ring-brand">
+                <span class="material-symbols-outlined text-[16px]">mail</span>
+                <span>Contact Me</span>
+              </a>
+              <a href="https://www.linkedin.com/in/ayush-goud-624a8421a" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg bg-white hover:bg-gray-50 text-ink-secondary hover:text-brand text-xs font-medium border border-gray-200 shadow-xs transition-all focus:outline-none focus:ring-2 focus:ring-brand" aria-label="Visit Ayush Goud's LinkedIn Profile (opens in a new tab)">
+                <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+                <span>LinkedIn</span>
+              </a>
+            </div>
+
+            <!-- Core Engineering Pillars -->
+            <div class="pt-5 border-t border-gray-200 grid grid-cols-1 sm:grid-cols-3 gap-4 w-full">
+              <div class="bg-white p-3.5 rounded-xl border border-gray-200/80 shadow-xs">
+                <div class="flex items-center gap-1.5 font-heading font-bold text-xs text-ink-primary mb-1">
+                  <span class="material-symbols-outlined text-brand text-[16px]">verified</span>
+                  <span>Honesty</span>
+                </div>
+                <p class="text-[11px] text-ink-secondary leading-normal">
+                  Authentic source code, transparent metrics, and truthful technical capabilities.
+                </p>
+              </div>
+
+              <div class="bg-white p-3.5 rounded-xl border border-gray-200/80 shadow-xs">
+                <div class="flex items-center gap-1.5 font-heading font-bold text-xs text-ink-primary mb-1">
+                  <span class="material-symbols-outlined text-brand text-[16px]">terminal</span>
+                  <span>Hard Work</span>
+                </div>
+                <p class="text-[11px] text-ink-secondary leading-normal">
+                  Strong programming foundations, active problem-solving, and continuous learning.
+                </p>
+              </div>
+
+              <div class="bg-white p-3.5 rounded-xl border border-gray-200/80 shadow-xs">
+                <div class="flex items-center gap-1.5 font-heading font-bold text-xs text-ink-primary mb-1">
+                  <span class="material-symbols-outlined text-brand text-[16px]">handshake</span>
+                  <span>Good Conduct</span>
+                </div>
+                <p class="text-[11px] text-ink-secondary leading-normal">
+                  Polite communication, receptive to feedback, and collaborative team mindset.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 2. ABOUT SECTION ==================== -->
+    <section id="about" class="py-16 bg-white border-b border-gray-200">
+      <div class="max-w-[72rem] mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          
+          <div class="lg:col-span-7 space-y-4">
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-gray-100 text-ink-secondary text-xs font-semibold tracking-wide uppercase border border-gray-200">
+              <span class="material-symbols-outlined text-[14px]">person</span>
+              <span>About Ayush</span>
+            </div>
+
+            <h2 class="font-heading font-bold text-2xl sm:text-3xl text-ink-primary tracking-tight">
+              A computer science student building practical software and data solutions.
+            </h2>
+
+            <p class="text-sm sm:text-base text-ink-secondary leading-relaxed">
+              I am a 2nd-year undergraduate student pursuing a <strong class="text-ink-primary font-semibold">Bachelor of Technology (B.Tech) in Computer Science and Engineering</strong> at <strong class="text-ink-primary font-semibold">GIET University, Gunupur</strong>. Prior to university, I completed my schooling at <strong class="text-ink-primary font-semibold">Kendriya Vidyalaya Gopalpur Military Station</strong>.
+            </p>
+
+            <p class="text-sm text-ink-secondary leading-relaxed">
+              My core interests include <span class="text-ink-primary font-medium">software development</span>, <span class="text-ink-primary font-medium">programming</span>, <span class="text-ink-primary font-medium">problem solving</span>, <span class="text-ink-primary font-medium">data analysis</span>, and exploring <span class="text-ink-primary font-medium">AI/ML fundamentals</span>. I focus on understanding concepts deeply by applying them to real data and machine learning projects rather than relying on surface-level claims.
+            </p>
+
+            <div class="p-4 rounded-xl bg-canvas border border-gray-200 flex items-start gap-3">
+              <span class="material-symbols-outlined text-brand text-[20px] shrink-0 mt-0.5">verified_user</span>
+              <div class="text-xs text-ink-secondary">
+                <span class="font-heading font-bold text-ink-primary block text-sm">Commitment to Authenticity</span>
+                <span>All projects, academic performance (CGPA 9.73 in 2nd semester of 1st year), internship experiences, and certifications presented on this website are completely authentic, with no fabricated results or exaggerated claims.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Personal Branding & Core Interests -->
+          <div class="lg:col-span-5">
+            <div class="bg-canvas rounded-2xl p-6 border border-gray-200 shadow-xs space-y-4">
+              <h3 class="font-heading font-bold text-base text-ink-primary flex items-center gap-2">
+                <span class="material-symbols-outlined text-brand text-[18px]">interests</span>
+                <span>Core Technical Interests</span>
+              </h3>
+
+              <div class="space-y-2.5">
+                <div class="flex items-center gap-2.5 p-2.5 rounded-lg bg-white border border-gray-200/80 text-xs">
+                  <span class="material-symbols-outlined text-brand text-[16px]">code</span>
+                  <span class="font-medium text-ink-primary">Software Development &amp; Programming</span>
+                </div>
+                <div class="flex items-center gap-2.5 p-2.5 rounded-lg bg-white border border-gray-200/80 text-xs">
+                  <span class="material-symbols-outlined text-brand text-[16px]">psychology</span>
+                  <span class="font-medium text-ink-primary">Problem Solving &amp; Algorithmic Logic</span>
+                </div>
+                <div class="flex items-center gap-2.5 p-2.5 rounded-lg bg-white border border-gray-200/80 text-xs">
+                  <span class="material-symbols-outlined text-brand text-[16px]">analytics</span>
+                  <span class="font-medium text-ink-primary">Data Analysis &amp; Exploratory Data Analysis (EDA)</span>
+                </div>
+                <div class="flex items-center gap-2.5 p-2.5 rounded-lg bg-white border border-gray-200/80 text-xs">
+                  <span class="material-symbols-outlined text-brand text-[16px]">smart_toy</span>
+                  <span class="font-medium text-ink-primary">Artificial Intelligence &amp; Machine Learning Fundamentals</span>
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-gray-200 text-xs text-ink-muted">
+                <span>Seeking internship and engineering opportunities to apply technical skills and collaborate with engineering teams.</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 3. TECHNICAL SKILLS SECTION ==================== -->
+    <section id="skills" class="py-16 bg-canvas border-b border-gray-200">
+      <div class="max-w-[72rem] mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Header -->
+        <div class="max-w-2xl mb-12">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-white text-ink-secondary text-xs font-semibold tracking-wide uppercase border border-gray-200 mb-3">
+            <span class="material-symbols-outlined text-[14px]">code_blocks</span>
+            <span>Competencies</span>
+          </div>
+          <h2 class="font-heading font-bold text-2xl sm:text-3xl text-ink-primary tracking-tight">
+            Technical Skills
+          </h2>
+          <p class="text-sm text-ink-secondary mt-1">
+            Core programming languages, web technologies, databases, and developer tools studied and utilized across academic and practical projects.
+          </p>
+        </div>
+
+        <!-- Skills Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- Skill Card 1: Programming Languages -->
+          <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-card card-lift flex flex-col justify-between">
+            <div>
+              <div class="w-10 h-10 rounded-lg bg-brand-subtle text-brand flex items-center justify-center font-heading font-bold text-base mb-4 border border-brand-border">
+                <span class="material-symbols-outlined text-[20px]">terminal</span>
+              </div>
+              <h3 class="font-heading font-bold text-base text-ink-primary mb-2">Programming Languages</h3>
+              <p class="text-xs text-ink-secondary leading-relaxed mb-4">
+                Core compiled and interpreted programming languages used for algorithmic problem solving and data analysis.
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-2 pt-3 border-t border-gray-100">
+              <span class="font-mono-tag text-xs font-semibold px-2.5 py-1 rounded-md bg-gray-100 text-ink-primary border border-gray-200">C</span>
+              <span class="font-mono-tag text-xs font-semibold px-2.5 py-1 rounded-md bg-gray-100 text-ink-primary border border-gray-200">C++</span>
+              <span class="font-mono-tag text-xs font-semibold px-2.5 py-1 rounded-md bg-gray-100 text-ink-primary border border-gray-200">Java</span>
+              <span class="font-mono-tag text-xs font-semibold px-2.5 py-1 rounded-md bg-brand-subtle text-brand border border-brand-border">Python</span>
+            </div>
+          </div>
+
+          <!-- Skill Card 2: Web & Database -->
+          <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-card card-lift flex flex-col justify-between">
+            <div>
+              <div class="w-10 h-10 rounded-lg bg-brand-subtle text-brand flex items-center justify-center font-heading font-bold text-base mb-4 border border-brand-border">
+                <span class="material-symbols-outlined text-[20px]">database</span>
+              </div>
+              <h3 class="font-heading font-bold text-base text-ink-primary mb-2">Web &amp; Database</h3>
+              <p class="text-xs text-ink-secondary leading-relaxed mb-4">
+                Markup and styling standards for frontend interfaces, along with relational database query formulation.
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-2 pt-3 border-t border-gray-100">
+              <span class="font-mono-tag text-xs font-semibold px-2.5 py-1 rounded-md bg-gray-100 text-ink-primary border border-gray-200">HTML5</span>
+              <span class="font-mono-tag text-xs font-semibold px-2.5 py-1 rounded-md bg-gray-100 text-ink-primary border border-gray-200">CSS</span>
+              <span class="font-mono-tag text-xs font-semibold px-2.5 py-1 rounded-md bg-brand-subtle text-brand border border-brand-border">MySQL</span>
+            </div>
+          </div>
+
+          <!-- Skill Card 3: Tools & Productivity -->
+          <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-card card-lift flex flex-col justify-between">
+            <div>
+              <div class="w-10 h-10 rounded-lg bg-brand-subtle text-brand flex items-center justify-center font-heading font-bold text-base mb-4 border border-brand-border">
+                <span class="material-symbols-outlined text-[20px]">construction</span>
+              </div>
+              <h3 class="font-heading font-bold text-base text-ink-primary mb-2">Developer Tools &amp; Office</h3>
+              <p class="text-xs text-ink-secondary leading-relaxed mb-4">
+                Version control for project tracking and productivity software for reports and technical documentation.
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-2 pt-3 border-t border-gray-100">
+              <span class="font-mono-tag text-xs font-semibold px-2.5 py-1 rounded-md bg-brand-subtle text-brand border border-brand-border">Git</span>
+              <span class="font-mono-tag text-xs font-semibold px-2.5 py-1 rounded-md bg-gray-100 text-ink-primary border border-gray-200">MS Office</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 4. FEATURED PROJECTS SECTION ==================== -->
+    <section id="projects" class="py-16 bg-white border-b border-gray-200">
+      <div class="max-w-[72rem] mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Header -->
+        <div class="max-w-2xl mb-12">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-gray-100 text-ink-secondary text-xs font-semibold tracking-wide uppercase border border-gray-200 mb-3">
+            <span class="material-symbols-outlined text-[14px]">folder_special</span>
+            <span>Practical Builds</span>
+          </div>
+          <h2 class="font-heading font-bold text-2xl sm:text-3xl text-ink-primary tracking-tight">
+            Featured Projects
+          </h2>
+          <p class="text-sm text-ink-secondary mt-1">
+            Hands-on machine learning and data analysis projects implemented in Python.
+          </p>
+        </div>
+
+        <!-- 3 Projects Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- Project 1: Mental Health Survey Analysis -->
+          <div class="bg-canvas rounded-2xl border border-gray-200 shadow-card card-lift overflow-hidden flex flex-col justify-between">
+            <div class="p-6">
+              <div class="flex items-center justify-between gap-2 mb-4">
+                <span class="font-mono-tag text-[11px] font-semibold text-brand bg-brand-subtle border border-brand-border px-2.5 py-1 rounded-full">
+                  Data Analysis &amp; ML
+                </span>
+                <span class="material-symbols-outlined text-ink-muted text-[20px]">query_stats</span>
+              </div>
+              <h3 class="font-heading font-bold text-lg text-ink-primary mb-2">
+                Mental Health Survey Analysis
+              </h3>
+              <p class="text-xs text-ink-secondary leading-relaxed mb-4">
+                Analyzes OSMI mental health survey CSV datasets using Python to explore and derive insights from mental-health-related survey data.
+              </p>
+              <div class="bg-white p-3 rounded-xl border border-gray-200/80 mb-4">
+                <span class="text-[11px] font-semibold text-ink-primary block mb-1">Key Focus:</span>
+                <p class="text-[11px] text-ink-secondary leading-relaxed">
+                  Data cleaning, exploratory data analysis of survey responses, and identifying trends in mental health awareness within technical workplaces.
+                </p>
+              </div>
+            </div>
+            <div class="px-6 py-3.5 bg-white border-t border-gray-100 flex items-center justify-between">
+              <div class="flex flex-wrap gap-1.5">
+                <span class="font-mono-tag text-[11px] font-medium text-ink-secondary bg-gray-100 px-2 py-0.5 rounded">Python</span>
+                <span class="font-mono-tag text-[11px] font-medium text-ink-secondary bg-gray-100 px-2 py-0.5 rounded">Jupyter</span>
+                <span class="font-mono-tag text-[11px] font-medium text-ink-secondary bg-gray-100 px-2 py-0.5 rounded">Git</span>
+                <span class="font-mono-tag text-[11px] font-medium text-brand bg-brand-subtle px-2 py-0.5 rounded border border-brand-border">ML</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: House Price Prediction -->
+          <div class="bg-canvas rounded-2xl border border-gray-200 shadow-card card-lift overflow-hidden flex flex-col justify-between">
+            <div class="p-6">
+              <div class="flex items-center justify-between gap-2 mb-4">
+                <span class="font-mono-tag text-[11px] font-semibold text-brand bg-brand-subtle border border-brand-border px-2.5 py-1 rounded-full">
+                  Regression &amp; Prediction
+                </span>
+                <span class="material-symbols-outlined text-ink-muted text-[20px]">real_estate_agent</span>
+              </div>
+              <h3 class="font-heading font-bold text-lg text-ink-primary mb-2">
+                House Price Prediction
+              </h3>
+              <p class="text-xs text-ink-secondary leading-relaxed mb-4">
+                Predicts house prices for a given area using a reference dataset and machine learning techniques.
+              </p>
+              <div class="bg-white p-3 rounded-xl border border-gray-200/80 mb-4">
+                <span class="text-[11px] font-semibold text-ink-primary block mb-1">Key Focus:</span>
+                <p class="text-[11px] text-ink-secondary leading-relaxed">
+                  Feature correlation, exploratory data analysis of housing attributes, and predictive modeling for real-estate valuation estimation.
+                </p>
+              </div>
+            </div>
+            <div class="px-6 py-3.5 bg-white border-t border-gray-100 flex items-center justify-between">
+              <div class="flex flex-wrap gap-1.5">
+                <span class="font-mono-tag text-[11px] font-medium text-ink-secondary bg-gray-100 px-2 py-0.5 rounded">Python</span>
+                <span class="font-mono-tag text-[11px] font-medium text-ink-secondary bg-gray-100 px-2 py-0.5 rounded">EDA</span>
+                <span class="font-mono-tag text-[11px] font-medium text-brand bg-brand-subtle px-2 py-0.5 rounded border border-brand-border">ML</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3: Heart Disease Prediction Using ML -->
+          <div class="bg-canvas rounded-2xl border border-gray-200 shadow-card card-lift overflow-hidden flex flex-col justify-between">
+            <div class="p-6">
+              <div class="flex items-center justify-between gap-2 mb-4">
+                <span class="font-mono-tag text-[11px] font-semibold text-brand bg-brand-subtle border border-brand-border px-2.5 py-1 rounded-full">
+                  Healthcare ML
+                </span>
+                <span class="material-symbols-outlined text-ink-muted text-[20px]">favorite</span>
+              </div>
+              <h3 class="font-heading font-bold text-lg text-ink-primary mb-2">
+                Heart Disease Prediction Using ML
+              </h3>
+              <p class="text-xs text-ink-secondary leading-relaxed mb-4">
+                Uses machine learning to analyze relationships in health data associated with heart disease.
+              </p>
+              <div class="bg-white p-3 rounded-xl border border-gray-200/80 mb-4">
+                <span class="text-[11px] font-semibold text-ink-primary block mb-1">Key Focus:</span>
+                <p class="text-[11px] text-ink-secondary leading-relaxed">
+                  Evaluating patient health indicators, statistical relationship analysis across clinical attributes, and machine learning classification.
+                </p>
+              </div>
+            </div>
+            <div class="px-6 py-3.5 bg-white border-t border-gray-100 flex items-center justify-between">
+              <div class="flex flex-wrap gap-1.5">
+                <span class="font-mono-tag text-[11px] font-medium text-ink-secondary bg-gray-100 px-2 py-0.5 rounded">Python</span>
+                <span class="font-mono-tag text-[11px] font-medium text-ink-secondary bg-gray-100 px-2 py-0.5 rounded">EDA</span>
+                <span class="font-mono-tag text-[11px] font-medium text-brand bg-brand-subtle px-2 py-0.5 rounded border border-brand-border">ML</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 5. EDUCATION SECTION ==================== -->
+    <section id="education" class="py-16 bg-canvas border-b border-gray-200">
+      <div class="max-w-[72rem] mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Header -->
+        <div class="max-w-2xl mb-12">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-white text-ink-secondary text-xs font-semibold tracking-wide uppercase border border-gray-200 mb-3">
+            <span class="material-symbols-outlined text-[14px]">school</span>
+            <span>Academic Pathway</span>
+          </div>
+          <h2 class="font-heading font-bold text-2xl sm:text-3xl text-ink-primary tracking-tight">
+            Education
+          </h2>
+          <p class="text-sm text-ink-secondary mt-1">
+            Academic credentials and formal education in Computer Science and Engineering.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          <!-- University Degree Card -->
+          <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-card card-lift">
+            <div class="flex items-start justify-between gap-4 mb-3">
+              <div class="w-10 h-10 rounded-lg bg-brand-subtle text-brand flex items-center justify-center shrink-0 border border-brand-border">
+                <span class="material-symbols-outlined text-[20px]">account_balance</span>
+              </div>
+              <span class="font-mono-tag text-xs font-semibold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200">
+                Current • 2nd Year
+              </span>
+            </div>
+
+            <h3 class="font-heading font-bold text-lg text-ink-primary">
+              Computer Science and Engineering
+            </h3>
+            <p class="text-xs font-semibold text-brand mb-3">GIET University, Gunupur</p>
+
+            <p class="text-xs text-ink-secondary leading-relaxed mb-4">
+              Enrolled in Bachelor of Technology (B.Tech) in Computer Science and Engineering. Currently in the 2nd year of studies.
+            </p>
+
+            <div class="p-3 bg-canvas rounded-xl border border-gray-200 flex items-center justify-between">
+              <span class="text-xs text-ink-secondary font-medium">Academic Performance:</span>
+              <span class="font-mono-tag font-bold text-xs text-brand bg-brand-subtle px-2.5 py-1 rounded border border-brand-border">
+                CGPA 9.73 (Sem 2, 1st Year)
+              </span>
+            </div>
+          </div>
+
+          <!-- Schooling Card -->
+          <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-card card-lift">
+            <div class="flex items-start justify-between gap-4 mb-3">
+              <div class="w-10 h-10 rounded-lg bg-gray-100 text-ink-secondary flex items-center justify-center shrink-0 border border-gray-200">
+                <span class="material-symbols-outlined text-[20px]">history_edu</span>
+              </div>
+              <span class="font-mono-tag text-xs font-semibold px-2.5 py-1 rounded-full bg-gray-100 text-ink-secondary border border-gray-200">
+                Schooling
+              </span>
+            </div>
+
+            <h3 class="font-heading font-bold text-lg text-ink-primary">
+              School Education
+            </h3>
+            <p class="text-xs font-semibold text-ink-secondary mb-3">
+              Kendriya Vidyalaya Gopalpur Military Station
+            </p>
+
+            <p class="text-xs text-ink-secondary leading-relaxed">
+              Foundational schooling education completed with a core focus on science, mathematics, and analytical reasoning.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 6. EXPERIENCE SECTION ==================== -->
+    <section id="experience" class="py-16 bg-white border-b border-gray-200">
+      <div class="max-w-[72rem] mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Header -->
+        <div class="max-w-2xl mb-12">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-gray-100 text-ink-secondary text-xs font-semibold tracking-wide uppercase border border-gray-200 mb-3">
+            <span class="material-symbols-outlined text-[14px]">work_history</span>
+            <span>Practical Experience</span>
+          </div>
+          <h2 class="font-heading font-bold text-2xl sm:text-3xl text-ink-primary tracking-tight">
+            Internship Experience
+          </h2>
+          <p class="text-sm text-ink-secondary mt-1">
+            Real internship training and practical skill building in AI/ML and Python Full Stack.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          <!-- Experience Card 1: Infrasoftech -->
+          <div class="bg-canvas rounded-2xl p-6 border border-gray-200 shadow-card card-lift flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="font-mono-tag text-[11px] font-semibold text-brand bg-brand-subtle px-2.5 py-1 rounded-full border border-brand-border">
+                  AI/ML Intern
+                </span>
+                <span class="text-xs text-ink-muted">Internship</span>
+              </div>
+              <h3 class="font-heading font-bold text-lg text-ink-primary mb-1">
+                Infrasoftech Pvt. Ltd.
+              </h3>
+              <p class="text-xs text-ink-secondary leading-relaxed mt-3 mb-4">
+                Learned the basics of AI/ML, Python data analysis, Exploratory Data Analysis (EDA), and machine learning training projects.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-gray-200 flex flex-wrap gap-1.5">
+              <span class="font-mono-tag text-[11px] bg-white text-ink-secondary px-2 py-0.5 rounded border border-gray-200">AI/ML Basics</span>
+              <span class="font-mono-tag text-[11px] bg-white text-ink-secondary px-2 py-0.5 rounded border border-gray-200">Python Data Analysis</span>
+              <span class="font-mono-tag text-[11px] bg-white text-ink-secondary px-2 py-0.5 rounded border border-gray-200">EDA</span>
+            </div>
+          </div>
+
+          <!-- Experience Card 2: EduSkills Academy -->
+          <div class="bg-canvas rounded-2xl p-6 border border-gray-200 shadow-card card-lift flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="font-mono-tag text-[11px] font-semibold text-brand bg-brand-subtle px-2.5 py-1 rounded-full border border-brand-border">
+                  Python Full Stack Intern
+                </span>
+                <span class="text-xs text-ink-muted">Internship</span>
+              </div>
+              <h3 class="font-heading font-bold text-lg text-ink-primary mb-1">
+                EduSkills Academy
+              </h3>
+              <p class="text-xs text-ink-secondary leading-relaxed mt-3 mb-4">
+                Completed a Python Full Stack Internship covering HTML, CSS, JavaScript, Python, Django, SQL, Git and Bootstrap.
+              </p>
+            </div>
+            <div class="pt-3 border-t border-gray-200 flex flex-wrap gap-1.5">
+              <span class="font-mono-tag text-[11px] bg-white text-ink-secondary px-2 py-0.5 rounded border border-gray-200">Python</span>
+              <span class="font-mono-tag text-[11px] bg-white text-ink-secondary px-2 py-0.5 rounded border border-gray-200">Django</span>
+              <span class="font-mono-tag text-[11px] bg-white text-ink-secondary px-2 py-0.5 rounded border border-gray-200">SQL</span>
+              <span class="font-mono-tag text-[11px] bg-white text-ink-secondary px-2 py-0.5 rounded border border-gray-200">HTML/CSS/JS</span>
+              <span class="font-mono-tag text-[11px] bg-white text-ink-secondary px-2 py-0.5 rounded border border-gray-200">Git</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 7. CERTIFICATIONS SECTION ==================== -->
+    <section id="certifications" class="py-16 bg-canvas border-b border-gray-200">
+      <div class="max-w-[72rem] mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Header -->
+        <div class="max-w-2xl mb-12">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-white text-ink-secondary text-xs font-semibold tracking-wide uppercase border border-gray-200 mb-3">
+            <span class="material-symbols-outlined text-[14px]">military_tech</span>
+            <span>Verified Credentials</span>
+          </div>
+          <h2 class="font-heading font-bold text-2xl sm:text-3xl text-ink-primary tracking-tight">
+            Certifications
+          </h2>
+          <p class="text-sm text-ink-secondary mt-1">
+            Formal technical certifications achieved across Artificial Intelligence and Python Full Stack Development.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          <!-- Cert 1: NxtWave -->
+          <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-card card-lift flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between text-xs mb-3">
+                <span class="font-mono-tag font-bold text-brand bg-brand-subtle px-2.5 py-1 rounded border border-brand-border">
+                  NxtWave
+                </span>
+                <span class="font-mono-tag text-ink-muted">September 2026</span>
+              </div>
+              <h3 class="font-heading font-bold text-base text-ink-primary mb-2">
+                NxtWave – University Engagement – GLE 2026-27 – Artificial Intelligence
+              </h3>
+              <p class="text-xs text-ink-secondary">
+                Issuer: NxtWave
+              </p>
+            </div>
+            <div class="pt-3 mt-4 border-t border-gray-100 flex items-center gap-2 text-xs text-ink-muted">
+              <span class="material-symbols-outlined text-emerald-600 text-[16px]">check_circle</span>
+              <span>Verified Certificate</span>
+            </div>
+          </div>
+
+          <!-- Cert 2: IBM AI Fundamentals -->
+          <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-card card-lift flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between text-xs mb-3">
+                <span class="font-mono-tag font-bold text-brand bg-brand-subtle px-2.5 py-1 rounded border border-brand-border">
+                  IBM
+                </span>
+                <span class="font-mono-tag text-ink-muted">September 2026</span>
+              </div>
+              <h3 class="font-heading font-bold text-base text-ink-primary mb-2">
+                Artificial Intelligence Fundamentals
+              </h3>
+              <p class="text-xs text-ink-secondary">
+                Issuer: IBM
+              </p>
+            </div>
+            <div class="pt-3 mt-4 border-t border-gray-100 flex items-center gap-2 text-xs text-ink-muted">
+              <span class="material-symbols-outlined text-emerald-600 text-[16px]">check_circle</span>
+              <span>Verified Certificate</span>
+            </div>
+          </div>
+
+          <!-- Cert 3: IBM Getting Started with AI -->
+          <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-card card-lift flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between text-xs mb-3">
+                <span class="font-mono-tag font-bold text-brand bg-brand-subtle px-2.5 py-1 rounded border border-brand-border">
+                  IBM
+                </span>
+                <span class="font-mono-tag text-ink-muted">March 2026</span>
+              </div>
+              <h3 class="font-heading font-bold text-base text-ink-primary mb-2">
+                Getting Started with Artificial Intelligence
+              </h3>
+              <p class="text-xs text-ink-secondary">
+                Issuer: IBM
+              </p>
+            </div>
+            <div class="pt-3 mt-4 border-t border-gray-100 flex items-center gap-2 text-xs text-ink-muted">
+              <span class="material-symbols-outlined text-emerald-600 text-[16px]">check_circle</span>
+              <span>Verified Certificate</span>
+            </div>
+          </div>
+
+          <!-- Cert 4: AICTE Python Full Stack -->
+          <div class="bg-white rounded-2xl p-6 border border-gray-200 shadow-card card-lift flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between text-xs mb-3">
+                <span class="font-mono-tag font-bold text-brand bg-brand-subtle px-2.5 py-1 rounded border border-brand-border">
+                  AICTE
+                </span>
+                <span class="font-mono-tag text-ink-muted">March 2026</span>
+              </div>
+              <h3 class="font-heading font-bold text-base text-ink-primary mb-2">
+                Python Full Stack Developer Virtual Internship
+              </h3>
+              <p class="text-xs text-ink-secondary">
+                Issuer: All India Council for Technical Education (AICTE)
+              </p>
+            </div>
+            <div class="pt-3 mt-4 border-t border-gray-100 flex items-center gap-2 text-xs text-ink-muted">
+              <span class="material-symbols-outlined text-emerald-600 text-[16px]">check_circle</span>
+              <span>Verified Certificate</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 8. CONTACT SECTION ==================== -->
+    <section id="contact" class="py-16 bg-white border-b border-gray-200">
+      <div class="max-w-[72rem] mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-2xl mx-auto text-center mb-12">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-gray-100 text-ink-secondary text-xs font-semibold tracking-wide uppercase border border-gray-200 mb-3">
+            <span class="material-symbols-outlined text-[14px]">send</span>
+            <span>Get in Touch</span>
+          </div>
+          <h2 class="font-heading font-bold text-2xl sm:text-3xl text-ink-primary tracking-tight">
+            Contact Ayush Goud
+          </h2>
+          <p class="text-sm text-ink-secondary mt-1">
+            Open for technical internships, engineering discussions, and software development collaborations.
+          </p>
+        </div>
+
+        <div class="max-w-3xl mx-auto">
+          
+          <!-- Contact Options Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+            
+            <!-- Email Option -->
+            <div class="bg-canvas p-6 rounded-2xl border border-gray-200 shadow-card flex flex-col justify-between">
+              <div>
+                <div class="w-10 h-10 rounded-lg bg-brand-subtle text-brand flex items-center justify-center mb-3 border border-brand-border">
+                  <span class="material-symbols-outlined text-[20px]">mail</span>
+                </div>
+                <h3 class="font-heading font-bold text-base text-ink-primary mb-1">Direct Email</h3>
+                <p class="text-xs text-ink-secondary mb-3">
+                  Feel free to send an email for internship inquiries or project queries.
+                </p>
+              </div>
+              <div class="pt-3 border-t border-gray-200">
+                <a href="mailto:ayushgoud2007@gmail.com" class="font-mono-tag text-xs font-semibold text-brand hover:text-brand-hover inline-flex items-center gap-1">
+                  <span>ayushgoud2007@gmail.com</span>
+                  <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- LinkedIn Option -->
+            <div class="bg-canvas p-6 rounded-2xl border border-gray-200 shadow-card flex flex-col justify-between">
+              <div>
+                <div class="w-10 h-10 rounded-lg bg-brand-subtle text-brand flex items-center justify-center mb-3 border border-brand-border">
+                  <span class="material-symbols-outlined text-[20px]">badge</span>
+                </div>
+                <h3 class="font-heading font-bold text-base text-ink-primary mb-1">LinkedIn Profile</h3>
+                <p class="text-xs text-ink-secondary mb-3">
+                  Connect on LinkedIn to review academic updates and professional networks.
+                </p>
+              </div>
+              <div class="pt-3 border-t border-gray-200">
+                <a href="https://www.linkedin.com/in/ayush-goud-624a8421a" target="_blank" rel="noopener noreferrer" class="font-mono-tag text-xs font-semibold text-brand hover:text-brand-hover inline-flex items-center gap-1">
+                  <span>ayush-goud-624a8421a</span>
+                  <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Quick Message Box -->
+          <div class="bg-canvas rounded-2xl p-6 sm:p-8 border border-gray-200 shadow-card">
+            <h3 class="font-heading font-bold text-lg text-ink-primary mb-2">Send an Inquiry</h3>
+            <p class="text-xs text-ink-secondary mb-6">
+              Select your inquiry topic and compose your note. Clicking send will open your default email client with the details pre-filled.
+            </p>
+
+            <form id="inquiry-form" onsubmit="handleInquirySubmit(event)" class="space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="sender-name" class="block text-xs font-semibold text-ink-primary mb-1.5">Your Name</label>
+                  <input type="text" id="sender-name" required placeholder="Name or Organization" class="w-full px-3.5 py-2.5 rounded-lg bg-white border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand text-xs text-ink-primary transition-all" />
+                </div>
+                <div>
+                  <label for="opportunity-type" class="block text-xs font-semibold text-ink-primary mb-1.5">Opportunity Type</label>
+                  <select id="opportunity-type" class="w-full px-3.5 py-2.5 rounded-lg bg-white border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand text-xs text-ink-primary transition-all">
+                    <option value="Internship Opportunity">Technical Internship Opportunity</option>
+                    <option value="Software Project Discussion">Software Project Discussion</option>
+                    <option value="AI/ML Collaboration">AI/ML Fundamentals Collaboration</option>
+                    <option value="Academic / General Inquiry">Academic / General Inquiry</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label for="inquiry-message" class="block text-xs font-semibold text-ink-primary mb-1.5">Message</label>
+                <textarea id="inquiry-message" rows="4" required placeholder="Hello Ayush, I reviewed your portfolio and would like to discuss..." class="w-full px-3.5 py-2.5 rounded-lg bg-white border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand text-xs text-ink-primary transition-all resize-none"></textarea>
+              </div>
+
+              <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
+                <span class="text-[11px] text-ink-muted flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[16px] text-brand">mail</span>
+                  <span>Recipient: ayushgoud2007@gmail.com</span>
+                </span>
+                <button type="submit" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-lg bg-brand hover:bg-brand-hover text-white font-heading font-semibold text-xs shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-brand focus:ring-offset-2">
+                  <span>Open in Email</span>
+                  <span class="material-symbols-outlined text-[16px]">send</span>
+                </button>
+              </div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-white border-t border-gray-200 py-10">
+    <div class="max-w-[72rem] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-brand text-white flex items-center justify-center font-heading font-bold text-xs">
+          AG
+        </div>
+        <div>
+          <span class="font-heading font-bold text-sm text-ink-primary block">Ayush Goud</span>
+          <span class="text-xs text-ink-muted">Computer Science &amp; Engineering • GIET University</span>
+        </div>
+      </div>
+
+      <p class="text-xs text-ink-muted text-center sm:text-left">
+        Authentic portfolio built in adherence with strict content accuracy rules.
+      </p>
+
+      <button id="go-to-top" type="button" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gray-100 hover:bg-gray-200 text-ink-secondary text-xs font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-brand" aria-label="Scroll back to top of the page">
+        <span class="material-symbols-outlined text-[16px]">arrow_upward</span>
+        <span>Go to Top</span>
+      </button>
+
+    </div>
+  </footer>
+
+  <!-- ==================== INTERACTION JAVASCRIPT ==================== -->
+  <script>
+    // 1. Mobile Menu Toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIconOpen = document.getElementById('menu-icon-open');
+    const menuIconClose = document.getElementById('menu-icon-close');
+
+    if (mobileMenuButton && mobileMenu) {
+      mobileMenuButton.addEventListener('click', () => {
+        const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+        mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
+        mobileMenu.classList.toggle('hidden');
+        menuIconOpen.classList.toggle('hidden');
+        menuIconClose.classList.toggle('hidden');
+      });
+
+      // Close mobile menu when a nav link is clicked
+      const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+      mobileNavLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          mobileMenuButton.setAttribute('aria-expanded', 'false');
+          menuIconOpen.classList.remove('hidden');
+          menuIconClose.classList.add('hidden');
+        });
+      });
+    }
+
+    // 2. Active Navigation Item Highlight on Scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    window.addEventListener('scroll', () => {
+      let currentSectionId = '';
+      const scrollPosition = window.scrollY + 120;
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          currentSectionId = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        const href = link.getAttribute('href').replace('#', '');
+        if (href === currentSectionId) {
+          link.classList.add('bg-gray-100', 'text-ink-primary');
+          link.classList.remove('text-ink-secondary');
+        } else {
+          link.classList.remove('bg-gray-100', 'text-ink-primary');
+          link.classList.add('text-ink-secondary');
+        }
+      });
+    });
+
+    // 3. Email Contact Form Handler (Direct mailto trigger)
+    function handleInquirySubmit(event) {
+      event.preventDefault();
+      const senderName = document.getElementById('sender-name').value.trim();
+      const opportunityType = document.getElementById('opportunity-type').value;
+      const message = document.getElementById('inquiry-message').value.trim();
+
+      const subject = encodeURIComponent(`[Portfolio Inquiry] ${opportunityType} from ${senderName}`);
+      const body = encodeURIComponent(`Hi Ayush,
+
+${message}
+
+Best regards,
+${senderName}`);
+
+      window.location.href = `mailto:ayushgoud2007@gmail.com?subject=${subject}&body=${body}`;
+    }
+  </script>
+
+</body>
+</html>
